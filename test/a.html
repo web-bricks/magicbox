@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>非常用Ajax Method测试</title>
+<script>
+    (function() {
+        //  加载kola
+        var script = document.createElement('script');
+        script.src = 'http://jady.com/kola/src/Package.js';
+        script.type = 'text/javascript';
+        script.async = true;
+        //  script.defer = true;
+        document.getElementsByTagName('head')[0].appendChild(script);
+        script = null;
+
+        //  声明一个kola替代变量
+        window.kola = function() {
+            var arr = [this];
+            for (var i = 0, il = arguments.length; i < il; i++) {
+                arr.push(arguments[i]);
+            }
+            kola._cache.push(arr);
+        };
+        kola._cache = [];
+    })();
+</script>
+<script>
+kola({
+    paths: {
+        _default: 		'http://jady.com/kola/src/',
+        'kola': 		'http://jady.com/kola/src/',
+        'webbricks': 	'http://jady.com/webbricks/magicbox/Code/JS/src/webbricks/',
+        'lib': 			'http://jady.com/webbricks/magicbox/Code/JS/src/lib/'
+    }
+});
+_view_context = 'p1\n\np2\n\np3';
+</script>
+</head>
+<body>
+<a href="http://jady.com/webbricks/magicbox/Code/JS/test/a.html">&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;</a>
+<a href="http://jady.com/webbricks/magicbox/Code/JS/test/b.html">&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;&nbsp;</a>
+<a href="http://jady.com/webbricks/magicbox/Code/JS/test/c.html">&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;</a>
+<div>
+	this is p1
+	<div id="t-p1">
+		this is p2
+		<div id="t-p2">
+			this is p3
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    kola('webbricks.magicbox.Builder', function(Builder) {
+        Builder.build();
+    });
+</script>
