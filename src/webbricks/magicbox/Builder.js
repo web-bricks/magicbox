@@ -127,6 +127,9 @@ kola('webbricks.magicbox.Builder', [
 			
 			//	TODO: 需要消灭掉_view_context全局变量
 			// 此视图的层级模式,当前页面的上下文,通过后端直接输出到页面上
+			if (_view_context.length > 0 && _view_context.charAt(-1) == '\n') {
+				_view_context = _view_context.substr(0, _view_context.length - 1);
+			}
 			this._viewMode = _view_context;
 			
 			// 保存当前的视图URL
@@ -434,7 +437,7 @@ kola('webbricks.magicbox.Builder', [
 		_getCanvas: function(to) {
 	        var srcs = _view_context.split('\n\n'),
 	                tos = to.split('\n\n'),
-	                containerPrefix = 't-',
+	                containerPrefix = 'MB-',
                     lastEqualIndex = -1,
                     containerSuffix = '';
 

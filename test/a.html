@@ -4,6 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>非常用Ajax Method测试</title>
 <script>
+	(function() {
+        var url = window.location.href,
+			toUrl = url.indexOf('#!') != -1 && url.split('#!')[1];
+        if (toUrl) window.location.href = toUrl;
+    })();
+
     (function() {
         //  加载kola
         var script = document.createElement('script');
@@ -32,20 +38,20 @@ kola({
         'kola': 		'http://jady.com/kola/src/',
         'webbricks': 	'http://jady.com/webbricks/magicbox/Code/JS/src/webbricks/',
         'lib': 			'http://jady.com/webbricks/magicbox/Code/JS/src/lib/'
-    }
+    },
+    charset: 'utf-8'
 });
-_view_context = 'p1\n\np2\n\np3';
 </script>
 </head>
-<body>
+<body data-context="p1\n\np2\n\np3">
 <a href="http://jady.com/webbricks/magicbox/Code/JS/test/a.html">&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;</a>
 <a href="http://jady.com/webbricks/magicbox/Code/JS/test/b.html">&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;&nbsp;</a>
 <a href="http://jady.com/webbricks/magicbox/Code/JS/test/c.html">&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;</a>
 <div>
 	this is p1
-	<div id="t-p1">
+	<div id="MB-p1">
 		this is p2
-		<div id="t-p2">
+		<div id="MB-p2">
 			this is p3
 		</div>
 	</div>
@@ -53,7 +59,7 @@ _view_context = 'p1\n\np2\n\np3';
 </body>
 </html>
 <script type="text/javascript">
-    kola('webbricks.magicbox.Builder', function(Builder) {
-        Builder.build();
+    kola('webbricks.magicbox.suite.ViewEngine', function(ViewEngine) {
+        ViewEngine.create();
     });
 </script>
