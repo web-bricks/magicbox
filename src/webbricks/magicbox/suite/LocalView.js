@@ -1,15 +1,15 @@
 /**
- * @fileOverview 页面视图引擎套件
+ * @fileOverview 局部视图引擎套件
  * @author Jady Yang
  */
 
-kola('webbricks.magicbox.suite.ViewEngine', [
+kola('webbricks.magicbox.suite.LocalView', [
 	'kola.lang.Class', 
 	'kola.lang.Function',
 	'webbricks.magicbox.controller.FullPage',
-	'webbricks.magicbox.trigger.UrlBaseOnContext',
+	'webbricks.magicbox.trigger.ByMarkUrlApi',
 	'webbricks.magicbox.requester.RemoteView',
-	'webbricks.magicbox.switcher.UrlBaseOnContext'
+	'webbricks.magicbox.switcher.ShowView'
 ], function(KolaClass, KolaFunction, Controller, Trigger, Requester, Switcher) {
 	
 	var exports = KolaClass.create({

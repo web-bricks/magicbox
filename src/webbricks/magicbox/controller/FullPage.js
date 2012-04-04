@@ -52,11 +52,11 @@ kola('webbricks.magicbox.controller.FullPage', [
 		 */
 		_requestSucc: function(request, data) {
 			//	调用switcher，切换到相应的内容
-			var pageInfo = this._switcher.switchTo(data, request);
+			var response = this._switcher.switchTo(data, request);
 			
 			//	把最新页面的信息，告知触发器
-			if (pageInfo) {
-				this._trigger.completeOnce(pageInfo, request);
+			if (response) {
+				this._trigger.completeOnce(response, request);
 			}
 		},
 		

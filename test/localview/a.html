@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>局部视图引擎测试</title>
+<script>
+	(function() {
+        var url = window.location.href,
+			toUrl = url.indexOf('#!') != -1 && url.split('#!')[1];
+        if (toUrl) window.location.href = toUrl;
+    })();
+
+    (function() {
+        //  加载kola
+        var script = document.createElement('script');
+        script.src = 'http://jady.com/kola/src/Package.js';
+        script.type = 'text/javascript';
+        script.async = true;
+        //  script.defer = true;
+        document.getElementsByTagName('head')[0].appendChild(script);
+        script = null;
+
+        //  声明一个kola替代变量
+        window.kola = function() {
+            var arr = [this];
+            for (var i = 0, il = arguments.length; i < il; i++) {
+                arr.push(arguments[i]);
+            }
+            kola._cache.push(arr);
+        };
+        kola._cache = [];
+    })();
+</script>
+<script>
+kola({
+    paths: {
+        _default: 		'http://jady.com/kola/src/',
+        'kola': 		'http://jady.com/kola/src/',
+        'webbricks': 	'http://jady.com/webbricks/magicbox/Code/JS/src/webbricks/',
+        'lib': 			'http://jady.com/webbricks/magicbox/Code/JS/src/lib/'
+    },
+    charset: 'utf-8'
+});
+</script>
+</head>
+<body>
+
+		
+	如下几种方式切换局部视图：
+	<ul>
+		<li><a 
+				href="javascript:void(0)" 
+				data-url="/webbricks/magicbox/Code/JS/test/localview/b.html"
+				data-target="#MB-p2"
+			>链接测试</a>
+		</li>
+		<li><button type="button"
+				data-url="/webbricks/magicbox/Code/JS/test/localview/c.html"
+				data-target="#MB-p2"
+			>button按钮测试</button>
+		</li>
+		<li><input type="button" value="input按钮测试" 
+				data-url="/webbricks/magicbox/Code/JS/test/localview/d.html"
+				data-target="#MB-p2"
+			/>
+		</li>
+	</ul>
+	
+	<div id="MB-p2">
+		这里的内容要被替换
+	</div>
+	
+
+</body>
+</html>
+<script type="text/javascript">
+    kola('webbricks.magicbox.suite.LocalView', function(Engine) {
+        Engine.create();
+    });
+</script>

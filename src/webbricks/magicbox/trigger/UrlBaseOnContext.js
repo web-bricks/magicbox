@@ -108,9 +108,9 @@ kola('webbricks.magicbox.trigger.UrlBaseOnContext', [
 		 * 一次请求切换完成后的回调方法
 		 */
 		//	TODO: 不应该采用回调值，而是事件方式
-		completeOnce: function(pageInfo, request) {
+		completeOnce: function(response, request) {
 			//	保存新的context
-			this._context = pageInfo.context;
+			this._context = response.context;
 			
 			var a = document.createElement('a');
 			a.href = request.url;
