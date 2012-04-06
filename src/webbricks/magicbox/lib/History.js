@@ -1,4 +1,4 @@
-kola('lib.history.History',
+kola('webbricks.magicbox.lib.History',
 null,
 function() {
 	

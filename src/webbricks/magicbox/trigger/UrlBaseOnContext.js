@@ -8,7 +8,7 @@ kola('webbricks.magicbox.trigger.UrlBaseOnContext', [
 	'kola.lang.Function',
 	'kola.bom.Event',
 	'kola.html.Element',
-	'lib.history.History'
+	'webbricks.magicbox.lib.History'
 ], function(KolaClass, KolaFunction, Event, $, History) {
 	
 	/**
