@@ -8,7 +8,7 @@ kola('webbricks.magicbox.trigger.UrlBaseOnContext', [
 	'kola.lang.Function',
 	'kola.bom.Event',
 	'kola.html.Element',
-	'webbricks.magicbox.lib.History'
+	'webbricks.magicbox.tool.UrlHistory'
 ], function(KolaClass, KolaFunction, Event, $, History) {
 	
 	/**
@@ -31,7 +31,7 @@ kola('webbricks.magicbox.trigger.UrlBaseOnContext', [
 			$(document.body).on('click', KolaFunction.bindEvent(this._e_body_click, this));
 			
 			//	初始化历史处理对象
-			History.init(KolaFunction.bind(this._historyChange, this));
+			History.create(KolaFunction.bind(this._historyChange, this));
 		},
 		
 		/**
