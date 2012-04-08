@@ -7,7 +7,7 @@ kola('webbricks.magicbox.switcher.ShowView', [
 	'kola.lang.Class', 
 	'kola.lang.Function',
 	'kola.html.Element',
-	'webbricks.magicbox.support.CssLoader'
+	'webbricks.magicbox.tool.CssLoader'
 ], function(KolaClass, KolaFunction, $, CssLoader) {
 	
 	//	缓存信息，先主要用于缓存那些js和css已经加载过

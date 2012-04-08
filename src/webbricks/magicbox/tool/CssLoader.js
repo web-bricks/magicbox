@@ -5,7 +5,7 @@
  * Time: 下午6:12
  * To change this template use File | Settings | File Templates.
  */
-kola('webbricks.magicbox.support.CssLoader', [
+kola('webbricks.magicbox.tool.CssLoader', [
 	'kola.html.Element',
 	'kola.lang.Function'
 ], function($, KolaFunction) {
